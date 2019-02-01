@@ -8,8 +8,8 @@ import numpy as np
 import sympy as sp
 
 def H_ij(i,j):
-    a = (((np.pi**2)*(j**2)/(200)))
-    b = (1/5)*(np.sin(i*np.pi)/2)*(np.sin(j*np.pi)/2)
+    a = np.pi**2*j**2/200
+    b = (1/5)*np.sin(i*np.pi/2)*np.sin(j*np.pi/2)
     
     if i == j:
         ham_int = a+b
