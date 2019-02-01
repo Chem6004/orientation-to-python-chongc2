@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb  1 12:56:40 2019
+
+@author: chongc
+"""
+import numpy as np
+import sympy as sp
+
+def H_ij(i,j):
+    a = (((np.pi**2)*(j**2)/(200)))
+    b = (1/5)*(np.sin(i*np.pi)/2)*(np.sin(j*np.pi)/2)
+    
+    if i == j:
+        ham_int = a+b
+        
+    else:
+        ham_int = b
+        
+    return ham_int
+
+H_mat = np.zeros((3,3))
+
+for i in range(1,4):
+    for j in range(1,4):
+        H_mat[i-1][j-1] = H_ij(i, j)
+        
+print(H_mat)
+
+    
+    
