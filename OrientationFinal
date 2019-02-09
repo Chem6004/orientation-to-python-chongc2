@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+"""
 Spyder Editor
 
 This is a temporary script file.
@@ -6,13 +8,14 @@ import numpy as np
 
 #number of particles assigned can be varied
 #assignment is to chose 5 different N values
-Npart = 1000
+Npart = 10
 Npart_array = [10,20,30,40,50,1000]
 KE_array = [31.25,62.5, 93.75, 125.0,156.25, 3125.0]
 PE_array = [192.89682539682542,519.547931428736,898.4961392761172,
             1311.4172155745546,1749.602669164726, 64854.70860551561]
-
-
+Npart_array1 = [10,20,30,40,50]
+Time_array = [0.3112938404083252,0.31322407722473145, 0.3245081901550293, 
+              0.3370239734649658,0.3811812400817871]
 
 
 
@@ -124,9 +127,9 @@ from matplotlib import pyplot as plt
 
 ### get the time at the beginning of the program
 start = time.time()
-### create an array of 100 x-values between -5 and 5
+### create an array of
 x1 = Npart_array
-### create an array of y-values defined as y = x^2
+### create an array of y-values 
 y1 = KE_array
 
 x2 = Npart_array
@@ -152,4 +155,27 @@ plt.show()
 end = time.time()
 how_long = end - start
 ### print the total time taken in seconds
-print(" Total time to run in seconds is: ",how_long)
+print("Hi Dr.Foley, my answers for the following questions are in this code")
+print("Kinetic Energy scales linearly")
+print("Potential Energy scales quadratically")
+
+#print("Total time to run in seconds is: ",how_long)
+
+### import time library
+import time
+### import pyplot as library
+from matplotlib import pyplot as plt
+
+### get the time at the beginning of the program
+##start = time.time()
+
+x = Npart_array1
+y = Time_array
+
+plt.plot(x, y, 'b--o')
+plt.plot(x,y, label = "Time")
+plt.xlabel('Number of Particles')
+plt.ylabel('Time (s)')
+plt.title('Time Taken in relation to # of particles')
+plt.legend()
+plt.show()
