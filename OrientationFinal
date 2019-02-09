@@ -6,6 +6,30 @@ This is a temporary script file.
 """
 import numpy as np
 
+import turtle
+
+
+turtle.shape("turtle")
+turtle.left(45)
+turtle.position()
+(0.00,0.00)
+turtle.forward(50)
+turtle.color("green")
+turtle.right(50)
+turtle.circle(125,350)
+turtle.home()
+big=("Arial", 20, "normal")
+turtle.penup()
+turtle.goto(-40,150)
+turtle.write("Hello Dr. Foley!", font=big)
+turtle.goto(-40,100)
+turtle.write("Welcome to my home", font=big)
+
+turtle.home()
+turtle.back(10)
+turtle.exitonclick()
+
+
 #number of particles assigned can be varied
 #assignment is to chose 5 different N values
 Npart = 10
