@@ -21,7 +21,7 @@ turtle.home()
 big=("Arial", 20, "normal")
 turtle.penup()
 turtle.goto(-40,150)
-turtle.write("Hello Dr. Foley!", font=big)
+turtle.write("Hello Friend!", font=big)
 turtle.goto(-40,100)
 turtle.write("Welcome to my home", font=big)
 
