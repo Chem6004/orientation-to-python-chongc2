@@ -1,0 +1,82 @@
+import numpy as np
+import sympy as sp
+
+def H_ij(i,j):
+    a = np.pi**2*j**2/200
+    b = (1/5)*np.sin(i*np.pi/2)*np.sin(j*np.pi/2)
+    
+    i = j
+    if i == j:
+        ham_int = a+b
+        
+    else:
+        ham_int = b
+        
+    return ham_int
+
+#H_mat is a hamoltonian array that contains a matrix
+
+H_mat_3 = np.zeros((3,3))
+
+for i in range(1,4):
+    for j in range(1,4):
+        H_mat_3[i-1][j-1] = H_ij(i, j)
+        
+print('Matrix 3x3', H_mat_3)
+
+H_mat_6 = np.zeros((6,6))
+
+for i in range(1,7):
+    for j in range(1,7):
+        H_mat_6[i-1][j-1] = H_ij(i, j)
+        
+print('Matrix 6x6', H_mat_6)
+
+### create an empty numpy array for the c vector
+c_3 = np.zeros(3)
+c_6 = np.zeros(6)
+### assign c vector to be (1, 0, 0)
+c_3[0] = 1
+c_6[0] = 1
+## c vector as (1,0,0)
+# Energy = 0.2493480220054468
+
+# c vector as (0,1,0)
+# Energy = 0.19739208802178715
+
+# c vector as (0,0,1)
+# Energy = 0.6441321980490211
+
+### assign c vector to be (1, 0, 0)
+
+
+
+### compute H_mat * c and store it to a new array called Hc
+##np.dot will multiply the H matrix accordingly with the vector you assign C 
+Hc_3 = np.dot(H_mat_3,c_3)
+Hc_6 = np.dot(H_mat_6,c_6)
+
+
+
+### compute c^t * Hc and store it to a variable E
+E_3 = np.dot(np.transpose(c_3),Hc_3)
+E_6 = np.dot(np.transpose(c_6),Hc_6)
+
+### print the result
+print('Energy of trial 3x3 =', E_3)
+print('Energy of trial 6x6 =', E_6)
+
+### compute eigenvalues and eigenvectors of H_mat
+### store eigenvalues to E_opt and eigenvectors to c_opt
+E_opt_3, c_opt_3 = np.linalg.eig(H_mat_3)
+E_opt_6, c_opt_6 = np.linalg.eig(H_mat_6)
+
+### print lowest eigenvalues corresponding to the 
+### variational estimate of the ground state energy
+print('Lowest eigenval 3x3',E_opt_3[0])
+print('Lowest eigenval 6x6',E_opt_6[0])
+
+### print coefficients that define the trial wavefunction with the lowest eigenvalue
+### which corresponds to the variational estimate of the ground state wavefunction
+print('coefficients w/ lowest eigenvalue - 3x3',c_opt_3[0])
+print('coefficients w/ lowest eigenvalue - 6x6',c_opt_6[0])
