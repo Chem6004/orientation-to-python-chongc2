@@ -5,7 +5,7 @@ Spyder Editor
 This is a temporary script file.
 """
 import numpy as np
-
+'''
 import turtle
 
 
@@ -29,7 +29,7 @@ turtle.home()
 turtle.back(10)
 turtle.exitonclick()
 
-
+'''
 #number of particles assigned can be varied
 #assignment is to chose 5 different N values
 Npart = 10
