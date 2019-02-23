@@ -1,3 +1,4 @@
+
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.interpolate import InterpolatedUnivariateSpline
@@ -101,6 +102,8 @@ def Velocity_Verlet(r_curr, v_curr, mu, f_interp, dt):
     ### get acceleration at current time
     a_curr = -1*f_interp(r_curr)/mu
     
+    
+    
     ### use current acceleration and velocity to update position
     r_fut = r_curr + v_curr * dt + 0.5 * a_curr * dt**2
     
@@ -113,6 +116,8 @@ def Velocity_Verlet(r_curr, v_curr, mu, f_interp, dt):
     result = [r_fut, v_fut]
     
     return result
+
+
 
 ### how many updates do you want to perform?
 N_updates = 200000
@@ -145,3 +150,32 @@ plt.show()
 ### plot the phase space trajectory of position vs momentum
 plt.plot(mu*v_vs_t, r_vs_t, 'blue')
 plt.show()
+a = -1*fE(3)/mu
+
+#Question 1
+
+#mass of carbon in amu
+mc = 12.0107
+    
+#mass of oxygen in amu
+mo = 15.9994
+    
+#formula
+m = (mc*mo)/(mc+mo)
+    
+print('Question 1,reduced mass of CO in amu = ', m)
+
+#### omega will be w = 2*pi*linear frequency
+v = 2143
+
+
+#wavenumber frequency
+#c = speed of light
+c = 2.9979*10**10
+
+v_f = v * c
+w = 2*np.pi* v_f
+
+print('Question 2, s-1 =', w)
+    
+print('Question 3, acceleration =',-1*fE(3)/mu)
