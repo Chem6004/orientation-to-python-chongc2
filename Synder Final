@@ -1,3 +1,4 @@
+
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.interpolate import InterpolatedUnivariateSpline
@@ -241,15 +242,11 @@ def BBK(r_curr, v_curr, rp_curr, gamma_val, temperature_val, mu, f_interp, dt):
    
     ### THE ABOVE IS EQUATION 6 IN THE ASSIGNMENT DAS POSTED
     
-
     
     r_fut = r_curr + v_curr + a_curr*dt/2
     
     
-    
     rp_fut = np.sqrt(2*temperature_val*gamma_val*mu/dt)*np.random.normal(0,1)
-    
-   
     
    
     a_fut = (-1*f_interp(r_fut)*dt + rp_fut*dt)/mu
