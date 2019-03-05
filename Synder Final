@@ -242,7 +242,7 @@ def BBK(r_curr, v_curr, rp_curr, gamma_val, temperature_val, mu, f_interp, dt):
    
     ### THE ABOVE IS EQUATION 6 IN THE ASSIGNMENT DAS POSTED
     
-    
+    v_curr = v_init + a_curr*((0.5)*dt)
     r_fut = r_curr + v_curr + a_curr*dt/2
     
     
